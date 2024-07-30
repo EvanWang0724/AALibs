@@ -54,12 +54,12 @@
     
     // 加载数据
     [self.contentView startLoading];
-    MJWeakSelf
+    __weak typeof(self) weakSelf = self;
     [self.viewModel loadData:@{} completion:^(BOOL result, NSString * _Nonnull error, AUNewDemoModel * _Nonnull data) {
         
         [weakSelf.contentView endLoading];
         if (!result) {
-            [VFXProgressHUD show:error];
+//            [VFXProgressHUD show:error];
             return;
         }
         [weakSelf.contentView setData:data];
@@ -71,12 +71,12 @@
     
     // 加载数据
     [self.contentView startLoading];
-    MJWeakSelf
+    __weak typeof(self) weakSelf = self;
     [self.viewModel submit:@{} completion:^(BOOL result, NSString * _Nonnull error, AUNewDemoModel * _Nonnull data) {
         
         [weakSelf.contentView endLoading];
         if (!result) {
-            [VFXProgressHUD show:error];
+//            [VFXProgressHUD show:error];
             return;
         }
         [weakSelf.contentView setData:data];

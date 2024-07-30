@@ -14,9 +14,9 @@
         
         [superview addSubview:self];
         
-        [self mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(superview);
-        }];
+//        [self mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.mas_equalTo(superview);
+//        }];
         
         [self initSubviews];
         [self configSubviews];

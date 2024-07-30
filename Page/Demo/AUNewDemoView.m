@@ -17,6 +17,8 @@
 
 @implementation AUNewDemoView
 
+@synthesize delegate = _delegate;
+
 - (void)initSubviews {
     
     self.submitButton = [[UIButton alloc] init];
@@ -30,28 +32,23 @@
 
 - (void)layoutSubviews {
     
-    [self.submitButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(self).mas_offset(-50);
-        make.left.mas_equalTo(self).mas_offset(12);
-        make.right.mas_equalTo(self).mas_offset(-12);
-        make.height.mas_equalTo(48);
-    }];
+//    [self.submitButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.mas_equalTo(self).mas_offset(-50);
+//        make.left.mas_equalTo(self).mas_offset(12);
+//        make.right.mas_equalTo(self).mas_offset(-12);
+//        make.height.mas_equalTo(48);
+//    }];
 }
 
 /// 配置页面事件
 - (void)configViewEvents {
     [super configViewEvents];
     
-    MJWeakSelf
     // 底部提交按钮事件
-    self.submitButton.eventTouchUpInsideHandler = ^(UIButton *button) {
-        
-        [weakSelf.delegate viewEventHandler:weakSelf event:AUNewDemoViewSubmit info:nil];
-    };
+    [self.submitButton addTarget:self action:@selector(submitButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setData:(AUNewDemoModel *)data {
-    
 }
 
 - (void)startLoading {
@@ -66,6 +63,9 @@
     self.demoView.delegate = delegate;
 }
 
-@synthesize delegate = _delegate;
+- (void)submitButtonClick:(UIButton *)button {
+    
+    [self.delegate viewEventHandler:self event:AUNewDemoViewSubmit info:nil];
+}
 
 @end
