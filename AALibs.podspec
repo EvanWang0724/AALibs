@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "AALibs"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "All AU libs."
 
   # This description is used to generate tags and improve search results.
@@ -92,7 +92,7 @@ All AU libs.
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "*"
+  spec.source_files  = "Base", "Base/**/*.{h,m}", "Demo", "Demo/*.{h,m}"
   spec.exclude_files = ""
 
   # spec.public_header_files = "Classes/**/*.h"
