@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "AALibs"
-  spec.version      = "0.0.3"
+  spec.version      = "0.0.5"
   spec.summary      = "All AU libs."
 
   # This description is used to generate tags and improve search results.
